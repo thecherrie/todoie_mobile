@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_todoie/list_view_page.dart';
 import 'package:flutter_todoie/components/item_card.dart';
+import 'package:flutter_todoie/state/list.dart';
+import 'package:provider/provider.dart';
 class ItemsListView extends StatefulWidget {
 
-  final List<Widget> items;
-
-  ItemsListView( this.items );
+  // final List<Widget> items;
+  //
+  // ItemsListView( this.items );
 
   @override
   _ItemsState createState() => _ItemsState();
@@ -12,26 +16,18 @@ class ItemsListView extends StatefulWidget {
 
 class _ItemsState extends State<ItemsListView> {
 
-  List<Widget> _items = [];
-  List<Widget> _getReturnItems() {
-    widget.items.forEach((element) {
-      _items.add(element);
-    });
-    return _items;
-  }
-
   @override
   void initState() {
-    _getReturnItems();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      key: UniqueKey(),
       shrinkWrap: true,
       crossAxisCount: 2,
-      children: _items,
+      children: context.watch<TodoieListState>().list,
     );
   }
 }
