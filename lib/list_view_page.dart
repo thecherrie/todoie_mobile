@@ -19,8 +19,9 @@ class _TodoieListViewState extends State<TodoieListView> {
   List<Widget> _addItem(ItemCard newItem) {
     List<Widget> newList = [];
     setState(() {
-      newList.add(newItem);
+      _items.add(newItem);
     });
+    print(_items);
     return newList;
   }
 
@@ -53,9 +54,15 @@ class _TodoieListViewState extends State<TodoieListView> {
                 ),
                 SizedBox(height: 20.0),
                 TodoieTextField("Search..."),
+                SizedBox(height: 20.0),
                 ItemsListView(_items),
                 SizedBox(height: 20.0),
-                Text("Schedule", style: AppComStyles.TITLE_TEXT_STYLE)
+                Text("Schedule", style: AppComStyles.TITLE_TEXT_STYLE),
+                Column(
+                  children: [
+
+                  ],
+                ),
               ],
             ),
           )
