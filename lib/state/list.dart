@@ -12,8 +12,14 @@ class TodoieListState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeItem(int id) {
-
+  void removeItem(int index) {
+    _list.removeAt(index);
+    notifyListeners();
   }
+
+  int getLatestId() {
+    return list.length;
+  }
+
 
 }

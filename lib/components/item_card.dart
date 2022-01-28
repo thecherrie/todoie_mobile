@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todoie/components/todoie_button.dart';
 import 'package:flutter_todoie/constants/colours.dart';
 import 'package:flutter_todoie/constants/margins.dart';
 import 'package:flutter_todoie/constants/styles.dart';
+import 'package:flutter_todoie/state/list.dart';
+import 'package:provider/src/provider.dart';
 class ItemCard extends StatelessWidget {
 
+  final int id;
   final String itemTitle;
   final String itemDescription;
 
-  ItemCard( this.itemTitle, this.itemDescription );
+  ItemCard( this.id, this.itemTitle, this.itemDescription );
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +33,9 @@ class ItemCard extends StatelessWidget {
           SizedBox(height:12.0),
           Text(itemDescription,
               style: AppComStyles.ITEM_DESCRIPTION_TEXT_STYLE
-          )
+          ),
+          Spacer(),
+          TodoieButton("Complete", () => context.read<TodoieListState>().removeItem(id))
         ],
       ),
     );

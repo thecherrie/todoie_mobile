@@ -12,7 +12,8 @@ class TodoieButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoButton(
-        child: Text("Add"),
+        padding: EdgeInsets.symmetric(horizontal: 23.0, vertical: 15.0),
+        child: Text(btnText),
         borderRadius: BorderRadius.circular(AppMargins.DEFAULT_BORDER_RADIUS),
         color: AppColours.ORANGE_COLOUR,
         onPressed: onPressed,

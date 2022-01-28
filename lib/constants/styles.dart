@@ -14,10 +14,10 @@ class AppComStyles {
     color: Colors.white,
   );
 
-  static const ITEM_DESCRIPTION_TEXT_STYLE = TextStyle(
+  static final ITEM_DESCRIPTION_TEXT_STYLE = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w300,
-    color: Colors.white,
+    color: Color(0xFFFFFFFF).withOpacity(0.7),
   );
 
 }
